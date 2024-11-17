@@ -8,6 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
+import Header from "./Header";
+import Social from "./Social";
 
 interface propsType {
   children: React.ReactNode;
@@ -26,7 +28,11 @@ const CardWrappar = ({
 }: propsType) => {
   return (
     <Card className="w-[400px] shadow-lg">
-     {children}
+      <CardHeader>
+        <Header label={headerLabel} />
+      </CardHeader>
+      <CardContent>{children}</CardContent>
+      <CardFooter>{showSocial && <Social />}</CardFooter>
     </Card>
   );
 };
