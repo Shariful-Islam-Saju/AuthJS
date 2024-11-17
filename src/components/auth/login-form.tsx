@@ -5,20 +5,19 @@ import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-//interlal import
+// Internal imports
 import {
-  useFormField,
   Form,
   FormItem,
   FormLabel,
   FormControl,
-  FormDescription,
   FormMessage,
   FormField,
 } from "../ui/form";
 import { loginSchema } from "../../../schemas";
 import CardWrappar from "./CardWrappar";
 import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 
 export const LoginForm = () => {
   const form = useForm<z.infer<typeof loginSchema>>({
@@ -28,26 +27,37 @@ export const LoginForm = () => {
       password: "",
     },
   });
+
+  const onSubmit = (data: z.infer<typeof loginSchema>) => {
+    console.log(data); // Replace with authentication logic
+  };
+
   return (
     <>
       <CardWrappar
         headerLabel="Welcome Back"
         backButtonHerf="/auth/register"
-        backButtonLabel="Don't have account?"
+        backButtonLabel="Don't have an account?"
         showSocial
       >
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(() => {})} className="space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <div className="space-y-4">
               <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel htmlFor="email">Email</FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input
+                        id="email"
+                        {...field}
+                        placeholder="sajukhan12905@gmail.com"
+                        type="email"
+                      />
                     </FormControl>
+                    <FormMessage />
                   </FormItem>
                 )}
               />
@@ -56,14 +66,18 @@ export const LoginForm = () => {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel htmlFor="password">Password</FormLabel>
                     <FormControl>
-                      <Input type="password" {...field} />
+                      <Input id="password" type="password" {...field} />
                     </FormControl>
+                    <FormMessage />
                   </FormItem>
                 )}
               />
             </div>
+            <Button type="submit" className="w-full">
+              Log In
+            </Button>
           </form>
         </Form>
       </CardWrappar>
