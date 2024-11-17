@@ -10,6 +10,7 @@ import {
 } from "../ui/card";
 import Header from "./Header";
 import Social from "./Social";
+import BackButton from "./BackButton";
 
 interface propsType {
   children: React.ReactNode;
@@ -33,6 +34,9 @@ const CardWrappar = ({
       </CardHeader>
       <CardContent>{children}</CardContent>
       <CardFooter>{showSocial && <Social />}</CardFooter>
+      <CardFooter>
+        <BackButton herf={backButtonHerf} label={backButtonLabel} />
+      </CardFooter>
     </Card>
   );
 };
