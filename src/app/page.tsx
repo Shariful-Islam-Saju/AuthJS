@@ -20,7 +20,7 @@ export default function Home() {
           Auth
         </h1>
         <p className="text-white text-lg">A simple Authentication Service</p>
-        <LoginButton mode="redirect">
+        <LoginButton mode="redirect" asChild>
           <Button variant={"secondary"} size={"lg"}>
             Sign in
           </Button>
