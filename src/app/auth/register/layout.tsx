@@ -1,6 +1,6 @@
 import React from "react";
 export const metadata = {
-  title: "Login",
+  title: "Register",
 };
 
 const layout = ({ children }: { children: React.ReactNode }) => {
