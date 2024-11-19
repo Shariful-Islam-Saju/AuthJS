@@ -8,7 +8,6 @@ export const login = async (values: object) => {
   if (!validateFields.success) {
     return { error: "Invalid Info" };
   }
-  return { error: "Invalid Info" };
 
   return { data: "Successfull" };
 };
