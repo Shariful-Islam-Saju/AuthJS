@@ -22,7 +22,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import FormError from "../FormError";
 import FormSuccess from "../FormSuccess";
-import { register } from "../../../actions/login";
+import { register } from "../../../actions/register";
 
 export const RegisterForm = () => {
   const form = useForm<z.infer<typeof registerSchema>>({

@@ -1,6 +1,6 @@
 "use server";
 
-import { loginSchema, registerSchema } from "../schemas";
+import { loginSchema } from "../schemas";
 
 export const login = async (values: object) => {
   const validateFields = loginSchema.safeParse(values);
@@ -11,12 +11,3 @@ export const login = async (values: object) => {
   return { data: "Successfull" };
 };
 
-export const register = async (values: object) => {
-  const validateFields = registerSchema.safeParse(values)
-    console.log(validateFields);
-    if (!validateFields.success) {
-      return { error: "Invalid Info" };
-    }
-
-    return { data: "Successfull" };
-}
