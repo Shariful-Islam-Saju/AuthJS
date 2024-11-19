@@ -123,11 +123,7 @@ export const RegisterForm = () => {
           </div>
           <FormError message={error} />
           <FormSuccess message={success} />
-          <Button
-            type="submit"
-            disabled={isPending || !form.formState.isValid}
-            className="w-full"
-          >
+          <Button type="submit" className="w-full">
             Register
           </Button>
         </form>
