@@ -15,13 +15,11 @@ export const register = async (values: userValues) => {
   const hasedPassword = await bcrypt.hash(values.password, 10);
   const userObject: userValues = { ...values, password: hasedPassword };
   const validateFields = registerSchema.safeParse(values);
-  console.log(validateFields);
   if (!validateFields.success) {
     return { error: "Invalid Info" };
   }
   const exitEmail = await User.find({ email: userObject.email });
   if (exitEmail.length > 0) {
-    console.log(exitEmail)
     return {error: "Email already exit"}
   }
   const newUser = new User(userObject);
