@@ -24,7 +24,7 @@ import FormError from "../FormError";
 import FormSuccess from "../FormSuccess";
 import { login } from "../../../actions/login";
 
-export const LoginForm = () => {
+ const LoginForm = () => {
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -111,3 +111,6 @@ export const LoginForm = () => {
     </>
   );
 };
+
+
+export default LoginForm

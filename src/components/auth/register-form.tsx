@@ -24,7 +24,7 @@ import FormError from "../FormError";
 import FormSuccess from "../FormSuccess";
 import { register } from "../../../actions/register";
 
-export const RegisterForm = () => {
+ const RegisterForm = () => {
   const form = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
@@ -133,3 +133,5 @@ export const RegisterForm = () => {
     </CardWrappar>
   );
 };
+
+export default RegisterForm
